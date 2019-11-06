@@ -3,13 +3,12 @@
 
 #include <QMainWindow>
 
-QT_BEGIN_NAMESPACE
 namespace Ui {
-    class MainWindow;
+class MainWindow;
 }
-QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow{
+class MainWindow : public QMainWindow
+{
     Q_OBJECT
 
 public:
@@ -17,13 +16,16 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_btnAbrir_clicked();
+    void on_pushButton_clicked();
 
-    void on_btnGuardar_clicked();
+    void on_pushButton_2_clicked();
 
-    void on_btnAnalizar_clicked();
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_4_clicked();
 
 private:
     Ui::MainWindow *ui;
 };
+
 #endif // MAINWINDOW_H
