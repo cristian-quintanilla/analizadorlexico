@@ -315,35 +315,35 @@ void Errores(int e){
     temp = QString::number(cE);
     switch(e){
         case 500:
-            errores += temp + "\t -> " + textoA.trimmed() + "\t\t -> Error 500: No corresponde al lenguaje\n";
+            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 500: No corresponde al lenguaje\n";
             cE++;
             break;
         case 501:
-            errores += temp + "\t -> " + textoA.trimmed() + "\t\t -> Error 501: Se esperaba digito despues de .\n";
+            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 501: Se esperaba digito despues de \".\"\n";
             cE++;
             break;
         case 502:
-            errores += temp + "\t -> " + textoA.trimmed() + "\t\t -> Error 502: Se esperaba digito despues de E o e\n";
+            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 502: Se esperaba digito despues de \"E\", \"e\"\n";
             cE++;
             break;
         case 503:
-            errores += temp + "\t -> " + textoA.trimmed() + "\t\t -> Error 503: Se esperaba digito despues de + o -\n";
+            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 503: Se esperaba digito despues de \"+\", \"-\"\n";
             cE++;
             break;
         case 504:
-            errores += temp + "\t -> " + textoA.trimmed() + "\t\t -> Error 504: Caracter mal formado\n";
+            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 504: Caracter mal formado\n";
             cE++;
             break;
         case 505:
-            errores += temp + "\t -> " + textoA.trimmed() + "\t\t -> Error 505: Caracter mal formado\n";
+            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 505: Caracter mal formado\n";
             cE++;
             break;
         case 506:
-            errores += temp + "\t -> " + textoA.trimmed() + "\t\t -> Error 506: Operador AND mal formado\n";
+            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 506: Operador AND mal formado\n";
             cE++;
             break;
         case 507:
-            errores += temp + "\t -> " + textoA.trimmed() + "\t\t -> Error 507: Operador OR mal formado\n";
+            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 507: Operador OR mal formado\n";
             cE++;
             break;
     }

@@ -25,6 +25,7 @@
     </property>
     <property name="font">
      <font>
+      <family>Consolas</family>
       <pointsize>10</pointsize>
      </font>
     </property>
@@ -40,7 +41,7 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>12</pointsize>
      </font>
     </property>
     <property name="text">
@@ -94,7 +95,7 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>12</pointsize>
      </font>
     </property>
     <property name="text">
@@ -112,6 +113,7 @@
     </property>
     <property name="font">
      <font>
+      <family>Consolas</family>
       <pointsize>10</pointsize>
      </font>
     </property>
@@ -127,6 +129,7 @@
     </property>
     <property name="font">
      <font>
+      <family>Consolas</family>
       <pointsize>10</pointsize>
      </font>
     </property>
@@ -142,7 +145,7 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>12</pointsize>
      </font>
     </property>
     <property name="text">
@@ -160,7 +163,7 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
      </font>
     </property>
     <property name="text">
@@ -172,13 +175,14 @@
      <rect>
       <x>20</x>
       <y>10</y>
-      <width>441</width>
+      <width>481</width>
       <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>14</pointsize>
+      <family>Consolas</family>
+      <pointsize>12</pointsize>
      </font>
     </property>
     <property name="text">
