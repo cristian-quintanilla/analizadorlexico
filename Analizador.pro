@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-04-04T11:34:09
+# Project created by Cristian Quintanilla
 #
 #-------------------------------------------------
 
