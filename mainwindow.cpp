@@ -331,11 +331,11 @@ void Errores(int e){
             cE++;
             break;
         case 504:
-            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 504: Caracter mal formado\n";
+            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 504: Caracter mal formado, falto un caracter\n";
             cE++;
             break;
         case 505:
-            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 505: Caracter mal formado\n";
+            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 505: Caracter mal formado, falto una \'\n";
             cE++;
             break;
         case 506:
@@ -609,11 +609,11 @@ void MainWindow::on_pushButton_2_clicked(){
 }
 
 /* LIMPIAR LOS CUADROS */
-void MainWindow::on_pushButton_3_clicked(){
+/*void MainWindow::on_pushButton_3_clicked(){
     ui->textoAnalizar->setPlainText("");
     ui->Token->setPlainText("");
     ui->Error->setPlainText("");
-}
+}*/
 
 /* GUARDAR EL ARCHIVO */
 void MainWindow::on_pushButton_4_clicked(){
