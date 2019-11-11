@@ -7,3 +7,5 @@
 
 ### Capturas de Pantalla
 ![Abrir Archivo](/capture_1.PNG?raw=true "Abrir Archivo")
+![Analizar](/capture_2.PNG?raw=true "Analizar")
+![Guardar como](/capture_3.PNG?raw=true "Guardar Como")
