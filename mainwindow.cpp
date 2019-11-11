@@ -10,7 +10,11 @@
 using namespace std;
 
 static int edo;
-int cT = 1, cE = 1;
+int cT = 0, cE = 0;
+QList<QString> tokenLeido;
+QList<QString> descripcionToken;
+QList<QString> errorLeido;
+QList<QString> descripcionError;
 
 /* --------------------------------------------------------------------------- FUNCIÓN DE TRANSICIÓN --------------------------------------------------------------------------- */
                 /*   0   1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   17   18   19   20   21   22   23   24   25   26   27   28   29   30  */
@@ -39,8 +43,8 @@ int M[19][31] = {
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
         ui->setupUi(this);
-        ui->Token->setReadOnly(true);
-        ui->Error->setReadOnly(true);
+        /*ui->Token->setReadOnly(true);
+        ui->Error->setReadOnly(true);*/
 }
 
 MainWindow::~MainWindow(){
@@ -121,191 +125,160 @@ QString texto;
 QString temp;
 void Token(int e){
     temp = QString::number(cT);
+    tokenLeido << textoA.trimmed();
     switch(e){
         case 100:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Palabra Reservada\n";
+            //Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Palabra Reservada\n";
+            textoA.trimmed();
+            descripcionToken << "Palabra Reservada";
             cT++;
             break;
         case 101:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t -> Identificador\n";
+            //Tokens += temp + "\t -> " + textoA.trimmed() + "\t -> Identificador\n";
+            textoA.trimmed();
+            descripcionToken << "Identificador";
             cT++;
             break;
         case 102:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Constante Entera\n";
+            textoA.trimmed();
+            descripcionToken << "Constante Entera";
             cT++;
             break;
         case 103:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Constante Decimal\n";
+            textoA.trimmed();
+            descripcionToken << "Constante Decimal";
             cT++;
             break;
         case 104:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t -> Cons. Notación Científica\n";
+            textoA.trimmed();
+            descripcionToken << "Constante Notación Científica";
             cT++;
             break;
         case 105:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Constante Caracter\n";
+            textoA.trimmed();
+            descripcionToken << "Constante Caracter";
             cT++;
             break;
         case 106:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Constante String\n";
+            textoA.trimmed();
+            descripcionToken << "Constante String";
             cT++;
             break;
         case 107:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Comentario\n";
+            descripcionToken << "Comentario";
+            textoA.trimmed();
             cT++;
             break;
         case 108:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Operador Mas\n";
+            descripcionToken << "Operador Mas";
+            textoA.trimmed();
             cT++;
             break;
         case 109:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Operador Menos\n";
+            descripcionToken << "Operador Menos";
+            textoA.trimmed();
             cT++;
             break;
         case 110:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Operador Multiplicación\n";
+            descripcionToken << "Operador Multiplicación";
+            textoA.trimmed();
             cT++;
             break;
         case 111:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Operador División\n";
+            descripcionToken << "Operador División";
+            textoA.trimmed();
             cT++;
             break;
         case 112:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Operador Módulo\n";
+            descripcionToken << "Operador Módulo";
+            textoA.trimmed();
             cT++;
             break;
         case 113:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Operador Igual\n";
+            descripcionToken << "Operador Igual\n";
+            textoA.trimmed();
             cT++;
             break;
         case 114:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Operador Asignación\n";
+            descripcionToken << "Operador Asignación";
+            textoA.trimmed();
             cT++;
             break;
         case 115:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Operador NOT\n";
+            descripcionToken << "Operador NOT";
+            textoA.trimmed();
             cT++;
             break;
         case 116:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Operador Diferente\n";
+            descripcionToken << "Operador Diferente";
+            textoA.trimmed();
             cT++;
             break;
         case 117:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Operador Menor\n";
+            descripcionToken << "Operador Menor";
+            textoA.trimmed();
             cT++;
             break;
         case 118:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Operador Menor Igual\n";
+            descripcionToken << "Operador Menor Igual";
+            textoA.trimmed();
             cT++;
             break;
         case 119:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Operador Mayor\n";
+            descripcionToken << "Operador Mayor";
+            textoA.trimmed();
             cT++;
             break;
         case 120:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Operador Mayor Igual\n";
+            descripcionToken << "Operador Mayor Igual";
+            textoA.trimmed();
             cT++;
             break;
         case 121:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Operador AND\n";
+            descripcionToken << "Operador AND";
+            textoA.trimmed();
             cT++;
             break;
         case 122:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Operador OR\n";
+            descripcionToken << "Operador OR";
+            textoA.trimmed();
             cT++;
             break;
         case 123:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Punto y Coma\n";
+            descripcionToken << "Punto y Coma";
+            textoA.trimmed();
             cT++;
             break;
         case 124:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Punto\n";
+            descripcionToken << "Punto";
+            textoA.trimmed();
             cT++;
             break;
         case 125:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Dos Puntos\n";
+            descripcionToken << "Dos Puntos";
+            textoA.trimmed();
             cT++;
             break;
         case 126:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Parentesis que Abre\n";
+            descripcionToken << "Parentesis que Abre";
+            textoA.trimmed();
             cT++;
             break;
         case 127:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Parentesis que Cierra\n";
+            descripcionToken << "Parentesis que Cierra";
+            textoA.trimmed();
             cT++;
             break;
         case 128:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Corchete que Abre\n";
+            descripcionToken << "Corchete que Abre";
+            textoA.trimmed();
             cT++;
             break;
         case 129:
-            Tokens += temp + "\t -> " + textoA.trimmed() + "\t\t -> Corchete que Cierra\n";
+            descripcionToken << "Corchete que Cierra";
+            textoA.trimmed();
             cT++;
             break;
-        /*
-        case 132:
-            Tokens+=textoA+" Palabra reservada end\n";
-            break;
-        case 133:
-            Tokens+=textoA+" Palabra reservada begin\n";
-            break;
-        case 134:
-            Tokens+=textoA+" Palabra reservada class\n";
-            break;
-        case 135:
-            Tokens+=textoA+" Palabra reservada import\n";
-            break;
-        case 136:
-            Tokens+=textoA+" Palabra reservada def\n";
-            break;
-        case 137:
-            Tokens+=textoA+" Palabra reservada as\n";
-            break;
-        case 138:
-            Tokens+=textoA+" Palabra reservada integer\n";
-            break;
-        case 139:
-            Tokens+=textoA+" Palabra reservada float\n";
-            break;
-        case 140:
-            Tokens+=textoA+" Palabra reservada char\n";
-            break;
-        case 141:
-            Tokens+=textoA+" Palabra reservada string\n";
-            break;
-        case 142:
-            Tokens+=textoA+" Palabra reservada boolean\n";
-            break;
-        case 143:
-            Tokens+=textoA+" Palabra reservada if\n";
-            break;
-        case 144:
-            Tokens+=textoA+" Palabra reservada endif\n";
-            break;
-        case 145:
-            Tokens+=textoA+" Palabra reservada else";
-            break;
-        case 146:
-            Tokens+=textoA+" Palabra reservada endwhile\n";
-            break;
-        case 147:
-            Tokens+=textoA+" Palabra reservada while\n";
-            break;
-        case 148:
-            Tokens+=textoA+" Palabra reservada endfor\n";
-            break;
-        case 149:
-            Tokens+=textoA+" Palabra reservada for\n";
-            break;
-        case 150:
-            Tokens+=textoA+" Palabra reservada enter\n";
-            break;
-        case 151:
-            Tokens+=textoA+" Palabra reservada write\n";
-            break;
-        case 152:
-            Tokens+=textoA+" Palabra reservada read\n";
-            break;*/
     }
 
 }
@@ -315,35 +288,43 @@ void Errores(int e){
     temp = QString::number(cE);
     switch(e){
         case 500:
-            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 500: No corresponde al lenguaje\n";
+            descripcionError << "Error 500: No corresponde al lenguaje";
+            errorLeido << textoA.trimmed();
             cE++;
             break;
         case 501:
-            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 501: Se esperaba digito despues de \".\"\n";
+            descripcionError << "Error 501: Se esperaba digito despues de \".\"";
+            errorLeido << textoA.trimmed();
             cE++;
             break;
         case 502:
-            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 502: Se esperaba digito despues de \"E\", \"e\"\n";
+            descripcionError << "Error 502: Se esperaba digito despues de \"E\", \"e\"";
+            errorLeido << textoA.trimmed();
             cE++;
             break;
         case 503:
-            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 503: Se esperaba digito despues de \"+\", \"-\"\n";
+            descripcionError << "Error 503: Se esperaba digito despues de \"+\", \"-\"";
+            errorLeido << textoA.trimmed();
             cE++;
             break;
         case 504:
-            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 504: Caracter mal formado, falto un caracter\n";
+            descripcionError << "Error 504: Caracter mal formado, falto un caracter";
+            errorLeido << textoA.trimmed();
             cE++;
             break;
         case 505:
-            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 505: Caracter mal formado, falto una \'\n";
+            descripcionError << "Error 505: Caracter mal formado, falto una \'";
+            errorLeido << textoA.trimmed();
             cE++;
             break;
         case 506:
-            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 506: Operador AND mal formado\n";
+            descripcionError << "Error 506: Operador AND mal formado";
+            errorLeido << textoA.trimmed();
             cE++;
             break;
         case 507:
-            errores += temp + "\t -> " + textoA.trimmed() + "\t -> Error 507: Operador OR mal formado\n";
+            descripcionError << "Error 507: Operador OR mal formado";
+            errorLeido << textoA.trimmed();
             cE++;
             break;
     }
@@ -351,7 +332,7 @@ void Errores(int e){
 }
 
 /* Método para verificar que se trata de una palabra reservada */
-/*int evaluaPalabraReservada(){
+int evaluaPalabraReservada(){
     int conta = 0;
     std::string cadenaStd = textoA.toStdString();
     for(int i = 0; i < textoA.length(); i++){
@@ -360,81 +341,14 @@ void Errores(int e){
             conta++;
     }
     QString temp = textoA.mid(conta, textoA.length());
-
-    if(textoA=="import" || temp=="import"){
-        return 135;
-    }
-    if(textoA=="class" || temp=="class"){
-        return 134;
-    }
-    if(textoA=="begin" || temp=="begin"){
-        return 133;
-    }
-    if(textoA=="end" || temp=="end"){
-        return 132;
-    }
-    if(textoA=="def" || temp=="def"){
-        return 136;
-    }
-    if(textoA=="as" || temp=="as"){
-        return 137;
-    }
-    if(textoA=="integer" || temp=="integer"){
-        return 138;
-    }
-    if(textoA=="float" || temp=="float"){
-        return 139;
-    }
-    if(textoA=="char" || temp=="char"){
-        return 140;
-    }
-    if(textoA=="string" || temp=="string"){
-        return 141;
-    }
-    if(textoA=="boolean" || temp=="boolean"){
-        return 142;
-    }
-    if(textoA=="if" || temp=="if"){
-        return 143;
-    }
-    if(textoA=="endif" || temp=="endif"){
-        return 144;
-    }
-    if(textoA=="else" || temp=="else"){
-        return 145;
-    }
-    if(textoA=="endwhile" || temp=="endwhile"){
-        return 146;
-    }
-    if(textoA=="while" || temp=="while"){
-        return 147;
-    }
-    if(textoA=="endfor" || temp=="endfor"){
-        return 148;
-    }
-    if(textoA=="for" || temp=="for"){
-        return 149;
-    }
-    if(textoA=="enter" || temp=="enter"){
-        return 150;
-    }
-    if(textoA=="write" || temp=="write"){
-        return 151;
-    }
-    if(textoA=="read" || temp=="read"){
-        return 152;
-    }
-    if((textoA=="principal" || temp=="principal")  ||
-       (textoA=="elseif" || temp=="elseif")  ||
-       (textoA=="do" || temp=="do") ||
-
-       (textoA=="function" || temp=="function") ||
-       (textoA=="endfunction" || temp=="endfunction") || (textoA=="null" || temp=="null") ||
-       (textoA=="include" || temp=="include")){
+    if((textoA=="function" || temp=="function")  || (textoA=="if" || temp=="if")  ||
+       (textoA=="else" || temp=="else") ||  (textoA=="for" || temp=="for") ||
+       (textoA=="main" || temp=="main") || (textoA=="while" || temp=="while") ||
+       (textoA=="endif" || temp=="endif")){
         return 100;
     }
     return 101;
-}*/
+}
 
 int Analiza(QString cadena){
     std::string cadenaStd = cadena.toStdString();
@@ -469,6 +383,10 @@ int Analiza(QString cadena){
             textoA.append(':');
         if(edo==112)
             textoA.append('%');
+        if(edo==121)
+            textoA.append("&");
+        if(edo==122)
+            textoA.append("|");
 
         if(edo < 100 || edo >= 500)
             textoA.append(car);
@@ -480,6 +398,13 @@ int Analiza(QString cadena){
                 textoA.append('E');
             edo = 6;
         }
+
+
+        if(edo==114 && car=='='){
+            textoA.append('=');
+            edo=114;
+        }
+
 
         if(edo==120 && car=='='){
             textoA.append('=');
@@ -524,8 +449,8 @@ int Analiza(QString cadena){
             edo=105;
         }
 
-        //if(edo==100)
-            //edo=evaluaPR();
+        if(edo==100)
+            edo=evaluaPalabraReservada();
 
         if(edo==106 && car=='"'){
             textoA.append(car);
@@ -535,7 +460,6 @@ int Analiza(QString cadena){
         car=cadenaStd[numero];
 
         numero++;
-        cout<<edo<<endl;
     }
         if(textoA=="&&" || textoA.contains("&&")){
             edo = 121;
@@ -547,7 +471,6 @@ int Analiza(QString cadena){
         }else if (textoA.contains("|")) {
             edo = 507;
         }
-
 
         int conta=0;
         std::string cadenaStd2 = textoA.toStdString();
@@ -572,29 +495,53 @@ int Analiza(QString cadena){
     return edo;
 }
 
-
 /* ANALIZAR */
 void MainWindow::on_pushButton_clicked(){
-    Tokens = "";
-    errores = "";
+    //Tokens = "";
+    //errores = "";
     cT = 0;
     cE = 0;
-    ui->Token->setPlainText("");
-    ui->Error->setPlainText("");
+
     texto=ui->textoAnalizar->toPlainText();
     while(texto!="")
         Analiza(texto);
 
-    ui->Token->appendPlainText(Tokens);
-    ui->Error->appendPlainText(errores);
-    //std::cout << texto.toUtf8().constData() << std::endl;
+    /* Tabla TOKENS */
+    ui->tableTokens->setColumnCount(2);
+    QStringList t;
+    t << "Token" << "Descripción Token";
+    ui->tableTokens->setHorizontalHeaderLabels(t);
+    ui->tableTokens->setColumnWidth(0, 100);
+    ui->tableTokens->setColumnWidth(1, 420);
+    for(int c = 0; c < cT; c++){
+        ui->tableTokens->insertRow(ui->tableTokens->rowCount());
+        ui->tableTokens->setItem(ui->tableTokens->rowCount()-1, 0, new QTableWidgetItem(tokenLeido[c]));
+        ui->tableTokens->setItem(ui->tableTokens->rowCount()-1, 1, new QTableWidgetItem(descripcionToken[c]));
+    }
+
+    /* Tabla Errores */
+    ui->tableErrores->setColumnCount(2);
+    QStringList e;
+    e << "Error" << "Descripción Error";
+    ui->tableErrores->setHorizontalHeaderLabels(e);
+    ui->tableErrores->setColumnWidth(0, 100);
+    ui->tableErrores->setColumnWidth(1, 420);
+    for(int c = 0; c < cE; c++){
+        ui->tableErrores->insertRow(ui->tableErrores->rowCount());
+        ui->tableErrores->setItem(ui->tableErrores->rowCount()-1, 0, new QTableWidgetItem(errorLeido[c]));
+        ui->tableErrores->setItem(ui->tableErrores->rowCount()-1, 1, new QTableWidgetItem(descripcionError[c]));
+    }
+
+
+    //ui->Token->appendPlainText(Tokens);
+    //ui->Error->appendPlainText(errores);
 
 }
 
 /* ABRIR EL ARCHIVO */
 void MainWindow::on_pushButton_2_clicked(){
    QString ruta=QFileDialog::getOpenFileName(
-                this,tr("Abrir archivo"),"","ISC Files (*.isc)");
+                this,tr("Abrir archivo"),"C:\\Users\\Duuvi\\Desktop\\Analizador","ISC Files (*.isc)");
     if(ruta!=""){
         QFile inputFile(ruta);
         if (inputFile.open(QIODevice::ReadOnly)){
@@ -607,13 +554,6 @@ void MainWindow::on_pushButton_2_clicked(){
         }
     }
 }
-
-/* LIMPIAR LOS CUADROS */
-/*void MainWindow::on_pushButton_3_clicked(){
-    ui->textoAnalizar->setPlainText("");
-    ui->Token->setPlainText("");
-    ui->Error->setPlainText("");
-}*/
 
 /* GUARDAR EL ARCHIVO */
 void MainWindow::on_pushButton_4_clicked(){
@@ -636,4 +576,21 @@ void MainWindow::on_pushButton_4_clicked(){
         stream <<ui->textoAnalizar->toPlainText()<<endl;
     }
 
+}
+
+void MainWindow::on_pushButton_3_clicked(){
+    close();
+}
+
+void MainWindow::on_cleanTables_clicked(){
+    ui->tableTokens->clearContents();
+    ui->tableTokens->model()->removeRows(0, ui->tableTokens->rowCount());
+    ui->tableErrores->clearContents();
+    ui->tableErrores->model()->removeRows(0, ui->tableErrores->rowCount());
+    ui->textoAnalizar->setPlainText("");
+
+    tokenLeido.clear();
+    errorLeido.clear();
+    descripcionError.clear();
+    descripcionToken.clear();
 }
