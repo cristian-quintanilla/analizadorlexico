@@ -195,7 +195,7 @@ void Token(int e){
             cT++;
             break;
         case 113:
-            descripcionToken << "Operador Igual\n";
+            descripcionToken << "Operador Igual";
             textoA.trimmed();
             cT++;
             break;
@@ -341,10 +341,13 @@ int evaluaPalabraReservada(){
             conta++;
     }
     QString temp = textoA.mid(conta, textoA.length());
-    if((textoA=="function" || temp=="function")  || (textoA=="if" || temp=="if")  ||
-       (textoA=="else" || temp=="else") ||  (textoA=="for" || temp=="for") ||
-       (textoA=="main" || temp=="main") || (textoA=="while" || temp=="while") ||
-       (textoA=="endif" || temp=="endif")){
+    if((textoA=="holyd" || temp=="holyd")  || (textoA=="finish" || temp=="finish")  ||
+       (textoA=="int" || temp=="int") ||  (textoA=="float" || temp=="float") ||
+       (textoA=="char" || temp=="char") || (textoA=="string" || temp=="string") ||
+       (textoA=="bool" || temp=="bool") || (textoA=="if" || temp=="if") || (textoA=="elseif" || temp=="elseif")
+       || (textoA=="fi" || temp=="fi") || (textoA=="while" || temp=="while")
+       || (textoA=="elihw" || temp=="elihw") || (textoA=="read" || temp=="read")
+       || (textoA=="write" || temp=="write") || (textoA=="define" || temp=="define")){
         return 100;
     }
     return 101;
